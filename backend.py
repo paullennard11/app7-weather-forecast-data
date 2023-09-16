@@ -1,6 +1,8 @@
+from decouple import config
 import requests
 
-API_KEY = "da8c42e091983fae766c5d294b5ced96"
+API_KEY = config('API_KEY')
+
 def get_data(place, forecast_days=None):
     url = f"http://api.openweathermap.org/data/2.5/forecast?q={place}&appid={API_KEY}"
     response = requests.get(url)
